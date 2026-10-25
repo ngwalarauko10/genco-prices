@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+/data
+/checkpoints
+/logs
+mlruns/
+mlflow.db
+/results/genco_opf_case118
+/results/genco_opf_case118_base
+/results/genco_opf_case118_emb
+/results/labels/*
+!/results/labels/case118_test3000_tune_grid.csv
+!/results/labels/case118_test3000_settings.json
+!/results/labels/case118_base_tune_grid.csv
+!/results/labels/case118_base_settings.json
+# per-quarter-hour market results hold values derived from JAO data; rebuild with `market analyse`
+/results/market_core_*.csv
+!/results/market_core_primal_sweep.csv

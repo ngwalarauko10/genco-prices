@@ -1,0 +1,10 @@
+,method,mean,ci_low,ci_high,median,p95,beats_dc,ties_dc,spread_r2
+lam_uniform,One system price,5.378,5.138,5.6333,4.2884,11.9964,0.0325,0.0006,0.0
+lam_dc,DC-OPF,2.4038,2.2843,2.5367,1.8466,4.9891,0.0,1.0,0.7654
+lam_genco,"Decode, GENCO dispatch",3.2042,2.898,3.5864,1.9494,6.9187,0.4105,0.0766,-0.4901
+lam_genco_untuned,"Decode, GENCO dispatch, untuned",4.2251,4.0068,4.4567,3.1165,9.8004,0.1452,0.0196,0.3119
+lam_vertex,"Decode, GENCO dispatch, vertex rule",3.1053,2.8869,3.3476,2.0962,7.0452,0.3517,0.0974,0.1331
+lam_learned,"Decode, GENCO dispatch, learned marginal generators",2.9041,2.7101,3.1132,1.95,6.0379,0.4044,0.0858,0.435
+lam_sub_br,"Decode, GENCO dispatch, solver's near-limit branches",2.7342,2.4522,3.0906,1.7068,5.8433,0.5018,0.1232,-0.3523
+lam_sub_gen,"Decode, GENCO dispatch, solver's generator classes",2.6137,2.4736,2.7703,1.9344,5.3321,0.4161,0.1146,0.6039
+lam_ref,"Decode, solver dispatch",2.0909,1.9983,2.1948,1.6828,4.0444,0.5025,0.1936,0.795

@@ -1,0 +1,6 @@
+{
+ "margin_mw": 7.0,
+ "bind_thr": 0.97,
+ "vertex_bind_thr": 0.97,
+ "tuning_scenarios": 800
+}

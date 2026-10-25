@@ -1,0 +1,61 @@
+{
+ "solved": 2942,
+ "agree": 2435,
+ "report": 1632,
+ "report_load_groups": 586,
+ "marginal_generators_mean": {
+  "ref": 4.849877450980392,
+  "genco": 5.957107843137255,
+  "learned": 5.17953431372549,
+  "vertex": 4.067401960784314
+ },
+ "binding_branches_mean": {
+  "ref": 4.1495098039215685,
+  "genco": 3.6341911764705883
+ },
+ "scarcity_scenarios": {
+  "120512": {
+   "lam_uniform": 75.27,
+   "lam_dc": 14.02,
+   "lam_genco": 33.85,
+   "lam_genco_untuned": 75.37,
+   "lam_vertex": 33.85,
+   "lam_learned": 40.2,
+   "lam_sub_br": 15.42,
+   "lam_sub_gen": 33.68,
+   "lam_ref": 13.98
+  },
+  "128900": {
+   "lam_uniform": 567.47,
+   "lam_dc": 564.31,
+   "lam_genco": 564.83,
+   "lam_genco_untuned": 546.42,
+   "lam_vertex": 564.3,
+   "lam_learned": 564.38,
+   "lam_sub_br": 551.08,
+   "lam_sub_gen": 549.03,
+   "lam_ref": 450.96
+  },
+  "153836": {
+   "lam_uniform": 214.59,
+   "lam_dc": 213.77,
+   "lam_genco": 77.58,
+   "lam_genco_untuned": 201.17,
+   "lam_vertex": 201.17,
+   "lam_learned": 77.58,
+   "lam_sub_br": 77.58,
+   "lam_sub_gen": 77.58,
+   "lam_ref": 77.58
+  }
+ },
+ "learned_minus_margin_rule": [
+  -0.253,
+  -0.432,
+  -0.075
+ ],
+ "with_scarcity_genco_minus_dc": [
+  0.585,
+  0.278,
+  0.882
+ ]
+}

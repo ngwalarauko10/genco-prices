@@ -1,0 +1,514 @@
+{
+ "days": [
+  "2026-10-02",
+  "2026-10-03",
+  "2026-10-04",
+  "2026-10-05",
+  "2026-10-06",
+  "2026-10-07",
+  "2026-10-08",
+  "2026-10-09",
+  "2026-10-10",
+  "2026-10-11",
+  "2026-10-12",
+  "2026-10-13",
+  "2026-10-14",
+  "2026-10-15"
+ ],
+ "days_skipped": [],
+ "price_source": "jao",
+ "lp_penalty_w_mu": 0.001,
+ "energy_charts_vs_jao_prices": {
+  "mtus": 1344,
+  "max_abs_diff_eur_mwh": 5.684341886080802e-14
+ },
+ "class_rule": "at_limit: every published physical constraint has |RAM - flow| < 1.0 MW under the published net positions; off_limit: at least one has not; none: no published physical constraint",
+ "mtu_classes": {
+  "mtus_with_prices": 1344,
+  "mtus_with_published_physical_constraint": 1187,
+  "mtus_at_limit": 721,
+  "mtus_off_limit": 466,
+  "mtus_no_published_physical_constraint": 157,
+  "mtus_with_only_hub_only_published_rows": 0,
+  "share_at_limit_of_mtus_with_constraint": 0.607413647851727,
+  "share_off_limit_of_mtus_with_constraint": 0.392586352148273,
+  "share_of_off_limit_mtus_starting_08_to_17": 0.7167381974248928,
+  "share_off_limit_of_mtus_with_constraint_08_to_17": 0.7136752136752137,
+  "off_limit_mtus_where_jao_ram_mcp_is_off_limit": 466,
+  "off_limit_mtus_with_ram_mcp_above_1mw_slack": 438,
+  "off_limit_mtus_with_ram_mcp_below_minus_1mw_overload": 454,
+  "max_abs_margin_minus_ram_mcp_mw": 0.9951670000000377,
+  "share_physical_rows_within_1mw": 0.5379571248423708,
+  "hub_only_rows_margin_over_ram_median": 0.11519258202567761
+ },
+ "pl_allocation_limits": {
+  "mtus_pl_at_export_limit": 409,
+  "mtus_pl_at_import_limit": 75
+ },
+ "mtus_without_published_constraint": {
+  "mtus": 157,
+  "mtus_one_price_everywhere": 95,
+  "mtus_price_split_above_1": 62,
+  "of_which_only_pl_differs": 62,
+  "of_which_pl_at_export_limit": 62,
+  "of_which_pl_at_import_limit": 0,
+  "of_which_pl_price_below_the_others": 62,
+  "pl_minus_others_eur_mwh_min_max": [
+   -167.71,
+   -9.32
+  ],
+  "price_fit_mae_with_pl_allocation_row": 0.0
+ },
+ "identity_A": {
+  "at_limit": {
+   "mtus": 721,
+   "mtus_non_pl_within_1": 717,
+   "share_mtus_non_pl_within_1": 0.9944521497919556,
+   "share_mtus_all_zones_within_1": 0.7018030513176144,
+   "mean_abs_error_non_pl": 0.010985027493629096
+  },
+  "off_limit": {
+   "mtus": 466,
+   "mtus_non_pl_within_1": 69,
+   "share_mtus_non_pl_within_1": 0.148068669527897,
+   "share_mtus_all_zones_within_1": 0.06866952789699571,
+   "mean_abs_error_non_pl": 11.88153862666114
+  },
+  "all_with_constraint": {
+   "mtus": 1187,
+   "mtus_non_pl_within_1": 786,
+   "share_mtus_non_pl_within_1": 0.6621735467565291,
+   "share_mtus_all_zones_within_1": 0.45324347093513057,
+   "mean_abs_error_non_pl": 4.671202362971355
+  },
+  "corr_all_zones": 0.9695883562046574,
+  "mean_residual_by_zone": {
+   "AT": 6.04,
+   "BE": 0.71,
+   "CZ": 0.85,
+   "FR": -0.13,
+   "HR": 6.12,
+   "HU": 7.19,
+   "NL": 0.12,
+   "PL": -8.05,
+   "RO": 6.75,
+   "SI": 6.02,
+   "SK": 5.55
+  }
+ },
+ "decode_B": {
+  "note": "In the MTUs where (A) holds, (B) only shows that the duals are identifiable: not separate evidence",
+  "price_fit_mae_published_set": 1.1699271590442566,
+  "price_fit_mae_published_set_plus_pl_rows": 0.001449198007759205,
+  "duals_identity_ok_mtus": {
+   "n": 2242,
+   "corr": 0.9999944336279779,
+   "mae": 0.21602976750587644,
+   "median_abs_error": 0.017470605833828978,
+   "mean_published": 225.40195191768242,
+   "n_rel": 2174,
+   "median_rel_error": 0.00014638396491984385,
+   "share_within_10pct": 0.9921803127874885
+  },
+  "duals_other_mtus": {
+   "n": 1723,
+   "corr": 0.9685024231499709,
+   "mae": 62.658851222129904,
+   "median_abs_error": 20.228801444745272,
+   "mean_published": 201.8390979138787,
+   "n_rel": 1682,
+   "median_rel_error": 0.3111596423260596,
+   "share_within_10pct": 0.19441141498216408
+  },
+  "share_mtus_full_rank_physical_rows": 0.995787700084246,
+  "hub_only_share_of_published_rows": 0.3564356435643564,
+  "hub_only_share_of_published_shadow_price": 0.029855682812091576
+ },
+ "leave_one_zone_out_D": {
+  "rule": "each MTU and each zone except PL: fit lam and mu on the other zones, predict the held-out zone; other_mtu = published physical rows of a random other MTU (seed 0); PL allocation rows of the MTU itself in both sets; intervals: bootstrap over whole days, 2,000 draws, seed 0",
+  "share_mtus_other_mtu_has_same_cnecs": 0.005952380952380952,
+  "published": {
+   "all_with_constraint": {
+    "n_zone_prices": 13057,
+    "mtus": 1187,
+    "days": 14,
+    "mean_abs_error": 0.012480351412744816,
+    "mean_abs_error_ci95": [
+     0.007124626177771806,
+     0.01850552506214692
+    ],
+    "median_abs_error": 0.0029332782913087385,
+    "median_abs_error_ci95": [
+     0.002804766725866692,
+     0.003044748584991605
+    ],
+    "share_within_1": 0.9990043654744581,
+    "share_within_1_ci95": [
+     0.9982886339488773,
+     0.9996892063245607
+    ],
+    "n_above_1": 13,
+    "max_abs_error": 18.174193035131836
+   },
+   "at_limit": {
+    "n_zone_prices": 7931,
+    "mtus": 721,
+    "days": 14,
+    "mean_abs_error": 0.005966495500135388,
+    "mean_abs_error_ci95": [
+     0.004563249659524413,
+     0.007887074811497363
+    ],
+    "median_abs_error": 0.0027767428162024377,
+    "median_abs_error_ci95": [
+     0.0026678512879342586,
+     0.0029090619905378645
+    ],
+    "share_within_1": 0.9997478249905435,
+    "share_within_1_ci95": [
+     0.9992025518341308,
+     1.0
+    ],
+    "n_above_1": 2,
+    "max_abs_error": 5.625567611775118
+   },
+   "off_limit": {
+    "n_zone_prices": 5126,
+    "mtus": 466,
+    "days": 14,
+    "mean_abs_error": 0.022558656376245673,
+    "mean_abs_error_ci95": [
+     0.009301104869027183,
+     0.03768686298534832
+    ],
+    "median_abs_error": 0.0031734800491776127,
+    "median_abs_error_ci95": [
+     0.0029354273721986955,
+     0.003407318851680863
+    ],
+    "share_within_1": 0.9978540772532188,
+    "share_within_1_ci95": [
+     0.9960112183809214,
+     0.9995791971438523
+    ],
+    "n_above_1": 11,
+    "max_abs_error": 18.174193035131836
+   },
+   "none": {
+    "n_zone_prices": 1727,
+    "mtus": 157,
+    "days": 8,
+    "mean_abs_error": 0.0,
+    "mean_abs_error_ci95": [
+     0.0,
+     0.0
+    ],
+    "median_abs_error": 0.0,
+    "median_abs_error_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_within_1": 1.0,
+    "share_within_1_ci95": [
+     1.0,
+     1.0
+    ],
+    "n_above_1": 0,
+    "max_abs_error": 0.0
+   },
+   "all": {
+    "n_zone_prices": 14784,
+    "mtus": 1344,
+    "days": 14,
+    "mean_abs_error": 0.011022453219440549,
+    "mean_abs_error_ci95": [
+     0.006047720445780142,
+     0.016893325091830978
+    ],
+    "median_abs_error": 0.00248246213136305,
+    "median_abs_error_ci95": [
+     0.0020958083730669985,
+     0.0028245226072472368
+    ],
+    "share_within_1": 0.999120670995671,
+    "share_within_1_ci95": [
+     0.9984442640692641,
+     0.9997294372294372
+    ],
+    "n_above_1": 13,
+    "max_abs_error": 18.174193035131836
+   }
+  },
+  "other_mtu": {
+   "all_with_constraint": {
+    "n_zone_prices": 13057,
+    "mtus": 1187,
+    "days": 14,
+    "mean_abs_error": 23.169386401712398,
+    "mean_abs_error_ci95": [
+     16.596471231454924,
+     31.410456723950254
+    ],
+    "median_abs_error": 7.168364476649103,
+    "median_abs_error_ci95": [
+     5.052336196953165,
+     10.460494468600713
+    ],
+    "share_within_1": 0.22830665543386688,
+    "share_within_1_ci95": [
+     0.18468246546633524,
+     0.27467078528065436
+    ],
+    "n_above_1": 10076,
+    "max_abs_error": 2197.283938321148
+   },
+   "at_limit": {
+    "n_zone_prices": 7931,
+    "mtus": 721,
+    "days": 14,
+    "mean_abs_error": 20.24839043212272,
+    "mean_abs_error_ci95": [
+     15.387931103226673,
+     26.15640392317368
+    ],
+    "median_abs_error": 5.400128859940956,
+    "median_abs_error_ci95": [
+     3.576006520439651,
+     8.114641140921488
+    ],
+    "share_within_1": 0.2601185222544446,
+    "share_within_1_ci95": [
+     0.20990624026666502,
+     0.31587918708699425
+    ],
+    "n_above_1": 5868,
+    "max_abs_error": 2197.283938321148
+   },
+   "off_limit": {
+    "n_zone_prices": 5126,
+    "mtus": 466,
+    "days": 14,
+    "mean_abs_error": 27.68878145337368,
+    "mean_abs_error_ci95": [
+     16.921094975530004,
+     38.404770647859394
+    ],
+    "median_abs_error": 10.178696609459278,
+    "median_abs_error_ci95": [
+     6.634908463975706,
+     15.119999999999997
+    ],
+    "share_within_1": 0.17908700741318767,
+    "share_within_1_ci95": [
+     0.136092453873794,
+     0.23396495894460873
+    ],
+    "n_above_1": 4208,
+    "max_abs_error": 1888.4875071822532
+   },
+   "none": {
+    "n_zone_prices": 1727,
+    "mtus": 157,
+    "days": 8,
+    "mean_abs_error": 0.0,
+    "mean_abs_error_ci95": [
+     0.0,
+     0.0
+    ],
+    "median_abs_error": 0.0,
+    "median_abs_error_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_within_1": 1.0,
+    "share_within_1_ci95": [
+     1.0,
+     1.0
+    ],
+    "n_above_1": 0,
+    "max_abs_error": 0.0
+   },
+   "all": {
+    "n_zone_prices": 14784,
+    "mtus": 1344,
+    "days": 14,
+    "mean_abs_error": 20.462843496155223,
+    "mean_abs_error_ci95": [
+     14.064873152177093,
+     28.694726730872173
+    ],
+    "median_abs_error": 4.889891116805357,
+    "median_abs_error_ci95": [
+     2.5098282534285326,
+     8.287864503025045
+    ],
+    "share_within_1": 0.31845238095238093,
+    "share_within_1_ci95": [
+     0.23322172619047618,
+     0.41031013257575755
+    ],
+    "n_above_1": 10076,
+    "max_abs_error": 2197.283938321148
+   }
+  }
+ },
+ "primal_C": {
+  "domain_days": [
+   "2026-10-14",
+   "2026-10-15"
+  ],
+  "consistency_rule": "no CNEC of the final domain has a flow above RAM + 1.0 MW under the published net positions (primal only; does not use the published active set)",
+  "headline_scope_and_tolerance": "non-redundant CNECs that change zonal price differences; RAM - flow <= 1.0 MW",
+  "consistent": {
+   "mtus": 133,
+   "recall": 0.9975247524752475,
+   "precision": 0.9393939393939394,
+   "mtus_exact_set": 108,
+   "dual_mae_union_mean": 2.0660619043428428,
+   "dual_mae_union_median": 0.08100405861405117,
+   "price_fit_mae_mean": 0.007462778919631614
+  },
+  "other": {
+   "mtus": 59,
+   "recall": 0.3380281690140845,
+   "precision": 0.6274509803921569,
+   "mtus_exact_set": 3,
+   "dual_mae_union_mean": 135.2715970376433,
+   "dual_mae_union_median": 157.56395861349495,
+   "price_fit_mae_mean": 6.712554339059945
+  },
+  "pooled": {
+   "mtus": 192,
+   "recall": 0.7252906976744186,
+   "precision": 0.8573883161512027,
+   "mtus_exact_set": 111,
+   "dual_mae_union_mean": 42.99901280467996,
+   "dual_mae_union_median": 0.1945601814615021,
+   "price_fit_mae_mean": 2.0678815395877486
+  },
+  "consistent_vs_mtu_class": {
+   "inconsistent_at_limit": 0,
+   "inconsistent_none": 0,
+   "inconsistent_off_limit": 59,
+   "consistent_at_limit": 120,
+   "consistent_none": 12,
+   "consistent_off_limit": 1
+  },
+  "rules_chosen_on_scored_days": [
+   "tolerance 1.0 MW on RAM - flow (the sweep file shows 0.5 to 50 MW)",
+   "scope: non-redundant (presolved) CNECs, no equality rows, with an effect on zonal price differences",
+   "consistency threshold 1.0 MW",
+   "match of a published CNEC to the final domain: |RAM difference| / 2 MW + max |PTDF difference| / 0.002 <= 1"
+  ],
+  "published_found_in_domain": 1.0,
+  "published_margin_quantiles_mw": {
+   "min": -96.6,
+   "p05": -18.56,
+   "median": 0.01,
+   "p95": 612.73,
+   "max": 2242.4
+  },
+  "sweep_csv": "results/market_core_primal_sweep.csv"
+ },
+ "missed_extra": {
+  "note": "price-fit errors follow from LP monotonicity (one row less cannot fit better, one row more cannot fit worse); only the dual errors (mae_others) are evidence. Classes as in mtu_classes.",
+  "at_limit": {
+   "mtus": 119,
+   "median": {
+    "k": 3.0,
+    "base_mae": 0.084,
+    "base_fit_mae": 0.002,
+    "drop_largest_published": 344.334,
+    "drop_largest_mae_others": 65.819,
+    "drop_largest_base_mae_others": 0.039,
+    "drop_largest_fit_mae": 9.33,
+    "drop_smallest_published": 52.608,
+    "drop_smallest_mae_others": 28.726,
+    "drop_smallest_base_mae_others": 0.098,
+    "drop_smallest_fit_mae": 0.691,
+    "drop_random_published": 188.601,
+    "drop_random_mae_others": 49.548,
+    "drop_random_base_mae_others": 0.065,
+    "drop_random_fit_mae": 3.202,
+    "extra_margin": 23.208,
+    "extra_decoded": 0.0,
+    "extra_mae_others": 0.085,
+    "extra_fit_mae": 0.002
+   },
+   "mean": {
+    "k": 3.361,
+    "base_mae": 0.131,
+    "base_fit_mae": 0.002,
+    "drop_largest_published": 350.513,
+    "drop_largest_mae_others": 135.003,
+    "drop_largest_base_mae_others": 0.114,
+    "drop_largest_fit_mae": 12.958,
+    "drop_smallest_published": 72.19,
+    "drop_smallest_mae_others": 71.884,
+    "drop_smallest_base_mae_others": 0.162,
+    "drop_smallest_fit_mae": 2.001,
+    "drop_random_published": 205.287,
+    "drop_random_mae_others": 99.696,
+    "drop_random_base_mae_others": 0.148,
+    "drop_random_fit_mae": 7.661,
+    "extra_margin": 27.584,
+    "extra_decoded": 0.055,
+    "extra_mae_others": 0.137,
+    "extra_fit_mae": 0.002
+   }
+  },
+  "off_limit": {
+   "mtus": 60,
+   "median": {
+    "k": 5.0,
+    "base_mae": 44.865,
+    "base_fit_mae": 0.001,
+    "drop_largest_published": 345.767,
+    "drop_largest_mae_others": 105.684,
+    "drop_largest_base_mae_others": 24.244,
+    "drop_largest_fit_mae": 8.334,
+    "drop_smallest_published": 5.887,
+    "drop_smallest_mae_others": 104.292,
+    "drop_smallest_base_mae_others": 56.561,
+    "drop_smallest_fit_mae": 0.31,
+    "drop_random_published": 96.185,
+    "drop_random_mae_others": 108.277,
+    "drop_random_base_mae_others": 43.29,
+    "drop_random_fit_mae": 3.528,
+    "extra_margin": 39.503,
+    "extra_decoded": 0.0,
+    "extra_mae_others": 44.843,
+    "extra_fit_mae": 0.001
+   },
+   "mean": {
+    "k": 4.783,
+    "base_mae": 54.562,
+    "base_fit_mae": 0.001,
+    "drop_largest_published": 369.338,
+    "drop_largest_mae_others": 219.173,
+    "drop_largest_base_mae_others": 24.211,
+    "drop_largest_fit_mae": 8.425,
+    "drop_smallest_published": 37.136,
+    "drop_smallest_mae_others": 181.435,
+    "drop_smallest_base_mae_others": 67.384,
+    "drop_smallest_fit_mae": 2.014,
+    "drop_random_published": 153.523,
+    "drop_random_mae_others": 204.951,
+    "drop_random_base_mae_others": 51.596,
+    "drop_random_fit_mae": 4.819,
+    "extra_margin": 35.971,
+    "extra_decoded": 8.61,
+    "extra_mae_others": 54.214,
+    "extra_fit_mae": 0.001
+   }
+  }
+ },
+ "decoded_mu_at_bound": {
+  "bound_eur_mwh": 10000.0,
+  "largest_published_shadow_price": 2435.114108277,
+  "decode_B_rows": 0,
+  "leave_one_zone_out_published_fits": 0,
+  "leave_one_zone_out_other_mtu_fits": 89,
+  "primal_C_fits": 0
+ }
+}

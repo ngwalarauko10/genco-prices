@@ -1,0 +1,5 @@
+,mean_minus_dc,ci_low,ci_high
+"Decode, GENCO dispatch",0.6575,0.4221,0.9169
+"Decode, GENCO dispatch, learned marginal generators",0.4048,0.2106,0.6252
+"Decode, GENCO dispatch, vertex rule",0.5456,0.3833,0.73
+"Decode, solver dispatch",-0.3077,-0.4115,-0.2138

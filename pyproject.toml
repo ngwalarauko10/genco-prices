@@ -1,0 +1,48 @@
+[project]
+name = "genco-prices"
+version = "0.1.0"
+description = "Decode nodal prices (LMPs) from GENCO's OPF dispatch: GridFM GENCO Challenge 2026 entry"
+license = "Apache-2.0"
+authors = [{ name = "ngwalarauko10", email = "ngwalarauko10@gmail.com" }]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2.4",
+    "pandas>=2.3,<3",  # gridfm-graphkit 0.9 breaks on pandas 3
+    "pyarrow>=18",
+    "scipy>=1.18",
+    "pandapower==3.5.5",
+    "matplotlib>=3.11",
+    "huggingface_hub[cli]>=0.34",
+    "scikit-learn>=1.5",
+    "jao-py==0.8.4",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+# Only for step 3 of reproduce.sh (GENCO inference). Same pins as our runs.
+genco = [
+    "gridfm-graphkit",
+    "torch==2.12.*",
+    "torch-scatter==2.1.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/genco_prices"]
+
+[tool.uv]
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+
+[tool.uv.sources]
+# graphkit main @ 8a8defb (01/10/2026); reproduces the checkpoint's published test metrics to 6-7 digits
+gridfm-graphkit = { git = "https://github.com/gridfm/gridfm-graphkit", rev = "8a8defbc9ab41caa65b07c75e8e1ee23636877cd" }
+torch = { index = "pytorch-cu126" }
+torch-scatter = { url = "https://data.pyg.org/whl/torch-2.12.0%2Bcu126/torch_scatter-2.1.2%2Bpt212cu126-cp312-cp312-linux_x86_64.whl" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
